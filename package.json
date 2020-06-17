@@ -1,0 +1,26 @@
+{
+  "name": "my-customer",
+  "version": "1.0.0",
+  "description": "This is an API EndPoint that sends a user Weekly or Monthly Email about his Sales.",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Customer Management",
+    "Business Management",
+    "Inventory Management",
+    "Sales AppLication"
+  ],
+  "author": "Osondu Tochukwu (tMan44wiz)",
+  "license": "ISC",
+  "dependencies": {
+    "@hapi/joi": "^17.1.1",
+    "body-parser": "^1.19.0",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.9.19",
+    "morgan": "^1.10.0"
+  }
+}
