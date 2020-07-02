@@ -1,4 +1,4 @@
-const transactionModel = require('../models/transactions_model');
+const TransactionModel = require('../models/transactions_model');
 
 
 //  View All Transactions

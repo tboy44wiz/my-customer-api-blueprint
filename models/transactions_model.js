@@ -1,7 +1,12 @@
 const mongoose = require('mongoose');
 
+
 const transactionSchema = mongoose.Schema({
-    // TODO Fields/Properties Here
+    amount: { type:String, required: true },
+    interest: { type: String, default: "Not set" },
+    total_amount: { type: String, required: true},
+    description: { type: String, default: "Not set" },
+    type: { type: String }
 });
 
 const transactionModel = mongoose.model("Transactions", transactionSchema);

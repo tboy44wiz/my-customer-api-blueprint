@@ -1,17 +1,19 @@
 const express = require('express');     //  Importing Express Package.
 require('dotenv').config();     //  Import Environment variables
-require('./config/db_config');   //  Importing the mongoose package.
+require('./config/db_config');   //  Importing the mongoose configuration file.
 const morgan = require('morgan');   //  Importing Morgan Package.
-const bodyParser = require('body-parser');  //  Import Body-Parser Package.
 
 
 //  Importing Routes
 const userSignup = require('./routes/signup_route');
 const userLogin = require('./routes/login_route');
 const otpAuth = require('./routes/otp_route');
+const customer = require('./routes/customer_route');
+const store = require('./routes/store_route');
+const store_admin = require('./routes/store_admin_route');
+const store_assistant = require('./routes/store_assistant_route');
 const getDept = require('./routes/dept_route');
-const viewTransactions = require('./routes/transaction_route');
-const product = require('./routes/product_route');
+const transactions = require('./routes/transaction_route');
 
 
 //  Set Up Express App
@@ -19,8 +21,8 @@ const app = express();
 
 
 //  parse JSON-encoded bodies and URL-encoded bodies
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 
 
 //  Using Middleware Morgan for logging.
@@ -28,12 +30,15 @@ app.use(morgan("combined"));
 
 
 //  Requesting for imported Routes
-app.use('/api/login', userLogin);
-app.use('/api/signup', userSignup);
-app.use('/api/otp', otpAuth);
-app.use('/api/depts', getDept);
-app.use('/api/transactions', viewTransactions);
-app.use('/api/my_customer', product);
+app.use('/login', userLogin);
+app.use('/signup', userSignup);
+app.use('/otp', otpAuth);
+app.use('/customer', customer);
+app.use('/store', store);
+app.use('/store_admin', store_admin);
+app.use('/store_assistants', store_assistant);
+app.use('/depts', getDept);
+app.use('/transactions', transactions);
 
 
 
